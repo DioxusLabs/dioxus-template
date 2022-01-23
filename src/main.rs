@@ -1,6 +1,11 @@
 use dioxus::prelude::*;
 
 fn main() {
+    
+    // init debug tool for WebAssembly
+    wasm_logger::init(wasm_logger::Config::default());
+    panic::set_hook(Box::new(console_error_panic_hook::hook));
+
     dioxus::web::launch(app);
 }
 

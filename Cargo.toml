@@ -8,3 +8,8 @@ edition = "2021"
 
 [dependencies]
 dioxus = { version = "0.1.7", features = ["web"] }
+
+# WebAssembly Debug
+log = "0.4.6"
+wasm-logger = "0.2.0"
+console_error_panic_hook = "0.1.7"
