@@ -7,13 +7,13 @@ name = "{{project-name}}"
 # desktop, web, mobile, ssr
 platforms = ["web", "desktop"]
 
+# `build` & `serve` dist path
+out_dir = "dist"
+
 [web.app]
 
 # HTML title tag content
 title = "dioxus | ⛺"
-
-# Web `build` & `serve` dist path
-out_dir = "dist"
 
 # resource (public) file folder
 public_dir = "public"
