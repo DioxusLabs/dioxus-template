@@ -1,10 +1,11 @@
-mod utils;
-
 use dioxus::prelude::*;
 
 fn main() {
-    // this function will check wich `target` you use
-    utils::platform::startup(app);
+    // init debug tool for WebAssembly
+    wasm_logger::init(wasm_logger::Config::default());
+    console_error_panic_hook::set_once();
+
+    dioxus::web::launch(app); 
 }
 
 fn app(cx: Scope) -> Element {
