@@ -10,13 +10,13 @@ platforms = ["web", "desktop"]
 # `build` & `serve` dist path
 out_dir = "dist"
 
+# resource (public) file folder
+asset_dir = "public"
+
 [web.app]
 
 # HTML title tag content
 title = "dioxus | ⛺"
-
-# resource (public) file folder
-public_dir = "public"
 
 [web.watcher]
 
