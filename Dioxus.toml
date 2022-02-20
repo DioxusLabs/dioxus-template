@@ -3,9 +3,9 @@
 # App (Project) Name
 name = "{{project-name}}"
 
-# Dioxus App Support Platform
+# Dioxus App Default Platform
 # desktop, web, mobile, ssr
-platforms = ["web", "desktop"]
+default_platform = "web"
 
 # `build` & `serve` dist path
 out_dir = "dist"
