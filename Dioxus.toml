@@ -30,7 +30,11 @@ watch_path = ["src", "public"]
 [web.resource]
 
 # CSS style file
+{% if styling == "Tailwind" %}
+style = ["tailwind.css"]
+{% else %}
 style = []
+{% endif %}
 
 # Javascript code file
 script = []
