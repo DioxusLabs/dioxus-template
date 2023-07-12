@@ -1,10 +1,12 @@
 use dioxus::prelude::*;
+use log::LevelFilter;
 
 fn main() {
-    // init debug tool for WebAssembly
-    wasm_logger::init(wasm_logger::Config::default());
+    // Init debug
+    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     console_error_panic_hook::set_once();
 
+    log::info!("starting app");
     dioxus_web::launch(app);
 }
 

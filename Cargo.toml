@@ -10,8 +10,7 @@ edition = "2021"
 dioxus = "0.3"
 dioxus-web = "0.3"
 
-log = "0.4.6"
-
-# WebAssembly Debug
-wasm-logger = "0.2.0"
+# Debug
+log = "0.4.19"
+dioxus-logger = "0.4.1"
 console_error_panic_hook = "0.1.7"
