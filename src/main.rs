@@ -193,7 +193,7 @@ fn main() {
 {% if platform != "Fullstack" %}
 fn app(cx: Scope) -> Element {
     render!{
-        Router {}
+        Router::<Route> {}
     }
 }
 {% endif %}
