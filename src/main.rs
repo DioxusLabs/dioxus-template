@@ -178,13 +178,29 @@ fn main() {
 {% if platform == "Fullstack" %}
 fn main() {
     {% if router %}
-    launch_router!(@([127, 0, 0, 1], 8080), Route, {
-        incremental: IncrementalRendererConfig::default().invalidate_after(std::time::Duration::from_secs(120)),
-    });
+    let config = LaunchBuilder::<FullstackRouterConfig<Route>>::router();
+    #[cfg(feature = "ssr")]
+    config
+        .incremental(
+            IncrementalRendererConfig::default()
+                .invalidate_after(std::time::Duration::from_secs(120)),
+        )
+        .launch();
+
+    #[cfg(not(feature = "ssr"))]
+    config.launch();
     {% else %}
-    launch!(@([127, 0, 0, 1], 8080), app, {
-        incremental: IncrementalRendererConfig::default().invalidate_after(std::time::Duration::from_secs(120)),
-    });
+    let config = LaunchBuilder::new(app);
+    #[cfg(feature = "ssr")]
+    config
+        .incremental(
+            IncrementalRendererConfig::default()
+                .invalidate_after(std::time::Duration::from_secs(120)),
+        )
+        .launch();
+
+    #[cfg(not(feature = "ssr"))]
+    config.launch();
     {% endif %}
 }
 {% endif %}
