@@ -8,43 +8,43 @@ edition = "2021"
 
 [dependencies]
 {% if platform == "Liveview" %}
-dioxus = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
+dioxus = { version = "0.4" }
 tokio = { version = "1.27.0", features = ["full"] }
 {% if backend == "Axum" %}
-dioxus-liveview = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe", features = ["axum"] }
+dioxus-liveview = { version = "0.4", features = ["axum"] }
 axum = { version = "0.6.12", features = ["ws"] }
 {% endif %}
 {% if backend == "Salvo" %}
-dioxus-liveview = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe", features = ["salvo"] }
+dioxus-liveview = { version = "0.4", features = ["salvo"] }
 salvo = { version = "0.37.9", features = ["ws"] }
 {% endif %}
 {% if backend == "Warp" %}
-dioxus-liveview = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe", features = ["warp"] }
+dioxus-liveview = { version = "0.4", features = ["warp"] }
 warp = { version = "0.3.3" }
 {% endif %}
 {% endif %}
 {% if platform == "web" %}
-dioxus-web = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
-dioxus = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
+dioxus-web = { version = "0.4" }
+dioxus = { version = "0.4" }
 wasm-logger = "0.2.0"
 console_error_panic_hook = "0.1.7"
 {% endif %}
 {% if platform == "desktop" %}
-dioxus-desktop = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
-dioxus = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
+dioxus-desktop = { version = "0.4" }
+dioxus = { version = "0.4" }
 {% endif %}
 {% if platform == "TUI" %}
-dioxus-tui = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
-dioxus = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
+dioxus-tui = { version = "0.4" }
+dioxus = { version = "0.4" }
 {% endif %}
 {% if platform == "Fullstack" %}
 {% if router %}
-dioxus-fullstack = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe", features = ["router"] }
+dioxus-fullstack = { version = "0.4", features = ["router"] }
 {% else %}
-dioxus-fullstack = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
+dioxus-fullstack = { version = "0.4" }
 {% endif %}
-dioxus = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
-dioxus-web = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe", features = ["hydrate"], optional = true }
+dioxus = { version = "0.4" }
+dioxus-web = { version = "0.4", features = ["hydrate"], optional = true }
 tokio = { version = "1.27.0", features = ["full"], optional = true }
 serde = "1.0.159"
 {% if backend == "Axum" %}
@@ -59,9 +59,9 @@ warp = { version = "0.3.3", optional = true }
 {% endif %}
 {% if router %}
 {% if platform == "web" %}
-dioxus-router = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe", features = ["web"] }
+dioxus-router = { version = "0.4", features = ["web"] }
 {% else %}
-dioxus-router = { git = "https://github.com/demonthos/dioxus", branch = "router-typesafe" }
+dioxus-router = { version = "0.4" }
 {% endif %}
 {% endif %}
 
