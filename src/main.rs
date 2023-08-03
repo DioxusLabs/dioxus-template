@@ -180,26 +180,22 @@ fn main() {
     {% if router %}
     let config = LaunchBuilder::<FullstackRouterConfig<Route>>::router();
     #[cfg(feature = "ssr")]
-    config
+    let config = config
         .incremental(
             IncrementalRendererConfig::default()
                 .invalidate_after(std::time::Duration::from_secs(120)),
-        )
-        .launch();
+        );
 
-    #[cfg(not(feature = "ssr"))]
     config.launch();
     {% else %}
     let config = LaunchBuilder::new(app);
     #[cfg(feature = "ssr")]
-    config
+    let config = config
         .incremental(
             IncrementalRendererConfig::default()
                 .invalidate_after(std::time::Duration::from_secs(120)),
-        )
-        .launch();
+        );
 
-    #[cfg(not(feature = "ssr"))]
     config.launch();
     {% endif %}
 }
@@ -214,6 +210,7 @@ fn app(cx: Scope) -> Element {
 }
 {% endif %}
 
+{% if platform != "Fullstack" %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
     #[route("/")]
@@ -221,11 +218,21 @@ enum Route {
     #[route("/blog/:id")]
     Blog { id: i32 },
 }
+{% endif %}
+{% if platform == "Fullstack" %}
+#[derive(Clone, Routable, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
+enum Route {
+    #[route("/")]
+    Home {},
+    #[route("/blog/:id")]
+    Blog { id: i32 },
+}
+{% endif %}
 
 #[inline_props]
 fn Blog(cx: Scope, id: i32) -> Element {
     render! {
-        Link { target: Route::Home {}, "Go to counter" }
+        Link { to: Route::Home {}, "Go to counter" }
         "Blog post {id}"
     }
 }
@@ -239,7 +246,7 @@ fn Home(cx: Scope) -> Element {
 
     cx.render(rsx! {
         Link {
-            target: Route::Blog {
+            to: Route::Blog {
                 id: *count.get()
             },
             "Go to blog"

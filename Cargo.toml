@@ -44,18 +44,7 @@ dioxus-fullstack = { version = "0.4", features = ["router"] }
 dioxus-fullstack = { version = "0.4" }
 {% endif %}
 dioxus = { version = "0.4" }
-dioxus-web = { version = "0.4", features = ["hydrate"], optional = true }
-tokio = { version = "1.27.0", features = ["full"], optional = true }
-serde = "1.0.159"
-{% if backend == "Axum" %}
-axum = { version = "0.6.12", optional = true }
-{% endif %}
-{% if backend == "Salvo" %}
-salvo = { version = "0.37.9", optional = true }
-{% endif %}
-{% if backend == "Warp" %}
-warp = { version = "0.3.3", optional = true }
-{% endif %}
+serde = { version = "1.0.159", features = ["derive"] }
 {% endif %}
 {% if router %}
 {% if platform == "web" %}
@@ -71,17 +60,17 @@ log = "0.4.6"
 [features]
 default = []
 {% if backend == "Axum" %}
-ssr = ["axum", "tokio", "dioxus-fullstack/axum"]
+ssr = ["dioxus-fullstack/axum"]
 {% endif %}
 {% if backend == "Salvo" %}
-ssr = ["salvo", "tokio", "dioxus-fullstack/salvo"]
+ssr = ["dioxus-fullstack/salvo"]
 {% endif %}
 {% if backend == "Warp" %}
-ssr = ["warp", "tokio", "dioxus-fullstack/warp"]
+ssr = ["dioxus-fullstack/warp"]
 {% endif %}
 {% if router %}
-web = ["dioxus-web", "dioxus-router/web"]
+web = ["dioxus-router/web", "dioxus-fullstack/web"]
 {% else %}
-web = ["dioxus-web"]
+web = ["dioxus-fullstack/web"]
 {% endif %}
 {% endif %}
