@@ -1,14 +1,13 @@
 #![allow(non_snake_case)]
 {% if platform == "Fullstack" %}
 #![allow(unused)]
-{% endif %}
-use dioxus::prelude::*;
-{% if platform == "Fullstack" %}
 use dioxus_fullstack::prelude::*;
 {% endif %}
 {% if router %}
 use dioxus_router::prelude::*;
 {% endif %}
+use dioxus::prelude::*;
+use log::LevelFilter;
 
 {% if platform == "Liveview" %}
 {% if backend == "Axum" %}
@@ -154,15 +153,18 @@ async fn main() {
 {% endif %}
 {% if platform == "web" %}
 fn main() {
-    // init debuging tools for WASM
-    wasm_logger::init(wasm_logger::Config::default());
+    // Init debug
+    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     console_error_panic_hook::set_once();
 
+    log::info!("starting app");
     dioxus_web::launch(app);
 }
 {% endif %}
 {% if platform == "desktop" %}
 fn main() {
+    // Init debug
+    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     {% if styling == "Tailwind" %}
     dioxus_desktop::launch_cfg(app, dioxus_desktop::Config::new().with_custom_head(r#"<link rel="stylesheet" href="public/tailwind.css">"#.to_string()));
     {% else %}
@@ -172,11 +174,15 @@ fn main() {
 {% endif %}
 {% if platform == "TUI" %}
 fn main() {
+    // Init debug
+    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     dioxus_tui::launch(app);
 }
 {% endif %}
 {% if platform == "Fullstack" %}
 fn main() {
+    // Init debug
+    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     {% if router %}
     let config = LaunchBuilder::<FullstackRouterConfig<Route>>::router();
     #[cfg(feature = "ssr")]

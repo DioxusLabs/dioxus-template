@@ -74,3 +74,10 @@ web = ["dioxus-router/web", "dioxus-fullstack/web"]
 web = ["dioxus-fullstack/web"]
 {% endif %}
 {% endif %}
+
+# Debug
+log = "0.4.19"
+dioxus-logger = "0.4.1"
+{% if platform == "web" %}
+console_error_panic_hook = "0.1.7"
+{% endif %}
