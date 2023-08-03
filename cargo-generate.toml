@@ -1,0 +1,55 @@
+[template]
+exclude = ["public/favicon.ico"]
+
+[values]
+dioxus_version = "0.3"
+
+[placeholders]
+
+[placeholders.platform]
+type = "string"
+prompt = "What platform are you targeting?"
+choices = ["desktop", "web", "TUI", "Liveview", "Fullstack"]
+default = "web"
+
+[conditional.'platform == "Liveview"'.placeholders.backend]
+type = "string"
+prompt = "What backend framework are you using?"
+choices = ["Axum", "Warp", "Salvo"]
+default = "Axum"
+
+[conditional.'platform == "Fullstack"'.placeholders.backend]
+type = "string"
+prompt = "What backend framework are you using?"
+choices = ["Axum", "Warp", "Salvo"]
+default = "Axum"
+
+[conditional.'platform == "web"'.placeholders.styling]
+type = "string"
+prompt = "How do you want to create CSS?"
+choices = ["Tailwind", "Vanilla"]
+default = "Vanilla"
+[conditional.'platform == "desktop"'.placeholders.styling]
+type = "string"
+prompt = "How do you want to create CSS?"
+choices = ["Tailwind", "Vanilla"]
+default = "Vanilla"
+[conditional.'platform == "Fullstack"'.placeholders.styling]
+type = "string"
+prompt = "How do you want to create CSS?"
+choices = ["Tailwind", "Vanilla"]
+default = "Vanilla"
+
+[conditional.'platform == "TUI"']
+ignore = [ "tailwind.config.js", "input.css", "public" ]
+[conditional.'platform == "Liveview"']
+ignore = [ "tailwind.config.js", "input.css", "public" ]
+[conditional.'platform == "desktop"']
+ignore = [ "public" ]
+[conditional.'styling == "Vannila"']
+ignore = [ "tailwind.config.js", "input.css", "public/tailwind.css" ]
+
+[placeholders.router]
+type = "bool"
+prompt = "Should the application use the dioxus router?"
+default = true

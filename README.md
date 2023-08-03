@@ -1,40 +1,48 @@
-# dioxus-template
+# Development
+{% if styling == "Tailwind" %}
+1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+2. Install the tailwind css cli: https://tailwindcss.com/docs/installation
+3. Run the following command in the root of the project to start the tailwind CSS compiler:
 
-> a template for starting a dioxus project to be used with [dioxus-cli](https://github.com/DioxusLabs/cli)
-
-## Usage
-
-#### use `dioxus-cli` init the template:
-
+```bash
+npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch
 ```
-dioxus init hello-dioxus
+{% endif %}
+{% if platform == "desktop" %}
+Run the following command in the root of the project to start the Dioxus dev server:
+
+```bash
+dx serve --hot-reload --platform desktop
+```
+{% else %}
+{% if platform == "TUI" %}
+Run the following command in the root of the project to start the Dioxus dev server:
+
+```bash
+dx serve --hot-reload --platform desktop
+```
+{% else %}
+{% if platform == "web" %}
+Run the following command in the root of the project to start the Dioxus dev server:
+
+```bash
+dx serve --hot-reload
 ```
 
-or you can choose the template, for this tempalte:
+- Open the browser to http://localhost:8080
+{% else %}
+{% if platform == "Fullstack" %}
+Launch the Dioxus Fullstack app:
 
+```bash
+dx build --features web --release
+cargo run --features ssr --release
 ```
-dioxus init hello-dioxus --template=gh:dioxuslabs/dioxus-template
-```
+{% else %}
+Launch the Dioxus app:
 
-#### Start a `dev-server` for the project:
-
+```bash
+cargo run
 ```
-cd ./hello-dioxus
-dioxus serve
-```
-
-or package this project:
-
-```
-dioxus build --release
-```
-
-## Project Structure
-
-```
-.project
-- public # save the assets you want include in your project.
-- src # put your code
-- - utils # save some public function
-- - components # save some custom components
-```
+{% endif %}
+{% endif %}
