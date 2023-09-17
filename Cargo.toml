@@ -26,8 +26,6 @@ warp = { version = "0.3.3" }
 {% if platform == "web" %}
 dioxus-web = { version = "0.4" }
 dioxus = { version = "0.4" }
-wasm-logger = "0.2.0"
-console_error_panic_hook = "0.1.7"
 {% endif %}
 {% if platform == "desktop" %}
 dioxus-desktop = { version = "0.4" }
@@ -54,7 +52,12 @@ dioxus-router = { version = "0.4" }
 {% endif %}
 {% endif %}
 
-log = "0.4.6"
+# Debug
+log = "0.4.19"
+dioxus-logger = "0.4.1"
+{% if platform == "web" %}
+console_error_panic_hook = "0.1.7"
+{% endif %}
 
 {% if platform == "Fullstack" %}
 [features]
@@ -73,11 +76,4 @@ web = ["dioxus-router/web", "dioxus-fullstack/web"]
 {% else %}
 web = ["dioxus-fullstack/web"]
 {% endif %}
-{% endif %}
-
-# Debug
-log = "0.4.19"
-dioxus-logger = "0.4.1"
-{% if platform == "web" %}
-console_error_panic_hook = "0.1.7"
 {% endif %}
