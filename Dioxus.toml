@@ -4,8 +4,12 @@
 name = "{{project-name}}"
 
 # Dioxus App Default Platform
-# desktop, web, mobile, ssr
+# desktop, web
+{% if platform == "desktop" %}
+default_platform = "desktop"
+{% else %}
 default_platform = "web"
+{% endif %}
 
 # `build` & `serve` dist path
 out_dir = "dist"
@@ -16,7 +20,7 @@ asset_dir = "public"
 [web.app]
 
 # HTML title tag content
-title = "dioxus | ⛺"
+title = "{{project-name}}"
 
 [web.watcher]
 
