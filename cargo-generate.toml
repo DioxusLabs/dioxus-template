@@ -46,7 +46,7 @@ ignore = [ "tailwind.config.js", "input.css", "public" ]
 ignore = [ "tailwind.config.js", "input.css", "public" ]
 [conditional.'platform == "desktop"']
 ignore = [ "public" ]
-[conditional.'styling == "Vannila"']
+[conditional.'styling == "Vanilla"']
 ignore = [ "tailwind.config.js", "input.css", "public/tailwind.css" ]
 
 [placeholders.router]
