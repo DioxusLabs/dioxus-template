@@ -166,7 +166,7 @@ fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     {% if styling == "Tailwind" %}
-    dioxus_desktop::launch_cfg(app, dioxus_desktop::Config::new().with_custom_head(r#"<link rel="stylesheet" href="public/tailwind.css">"#.to_string()));
+    dioxus_desktop::launch_cfg(app, dioxus_desktop::Config::new().with_custom_head(r#"<link rel="stylesheet" href="tailwind.css">"#.to_string()));
     {% else %}
     dioxus_desktop::launch(app);
     {% endif %}
