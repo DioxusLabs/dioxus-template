@@ -235,7 +235,7 @@ enum Route {
 }
 {% endif %}
 
-#[inline_props]
+#[component]
 fn Blog(cx: Scope, id: i32) -> Element {
     render! {
         Link { to: Route::Home {}, "Go to counter" }
@@ -243,7 +243,7 @@ fn Blog(cx: Scope, id: i32) -> Element {
     }
 }
 
-#[inline_props]
+#[component]
 fn Home(cx: Scope) -> Element {
     let mut count = use_state(cx, || 0);
     {% if platform == "Fullstack" %}
