@@ -1,5 +1,5 @@
 #![allow(non_snake_case)]
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 #![allow(unused)]
 use dioxus_fullstack::prelude::*;
 {% endif %}
@@ -9,7 +9,7 @@ use dioxus_router::prelude::*;
 use dioxus::prelude::*;
 use log::LevelFilter;
 
-{% if platform == "Liveview" %}
+{% if platform == "liveview" %}
 {% if backend == "Axum" %}
 #[tokio::main]
 async fn main() {
@@ -172,14 +172,14 @@ fn main() {
     {% endif %}
 }
 {% endif %}
-{% if platform == "TUI" %}
+{% if platform == "tui" %}
 fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     dioxus_tui::launch(app);
 }
 {% endif %}
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
@@ -208,7 +208,7 @@ fn main() {
 {% endif %}
 
 {% if router %}
-{% if platform != "Fullstack" %}
+{% if platform != "fullstack" %}
 fn app(cx: Scope) -> Element {
     render!{
         Router::<Route> {}
@@ -216,7 +216,7 @@ fn app(cx: Scope) -> Element {
 }
 {% endif %}
 
-{% if platform != "Fullstack" %}
+{% if platform != "fullstack" %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
     #[route("/")]
@@ -225,7 +225,7 @@ enum Route {
     Blog { id: i32 },
 }
 {% endif %}
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 #[derive(Clone, Routable, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
 enum Route {
     #[route("/")]
@@ -293,7 +293,7 @@ fn app(cx: Scope) -> Element {
 }
 {% endif %}
 
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 #[server(PostServerData)]
 async fn post_server_data(data: String) -> Result<(), ServerFnError> {
     println!("Server received: {}", data);

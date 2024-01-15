@@ -15,7 +15,7 @@ Run the following command in the root of the project to start the Dioxus dev ser
 dx serve --hot-reload --platform desktop
 ```
 {% else %}
-{% if platform == "TUI" %}
+{% if platform == "tui" %}
 Run the following command in the root of the project to start the Dioxus dev server:
 
 ```bash
@@ -31,7 +31,7 @@ dx serve --hot-reload
 
 - Open the browser to http://localhost:8080
 {% else %}
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 Launch the Dioxus Fullstack app:
 
 ```bash
