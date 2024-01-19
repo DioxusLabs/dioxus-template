@@ -9,16 +9,16 @@ dioxus_version = "0.3"
 [placeholders.platform]
 type = "string"
 prompt = "What platform are you targeting?"
-choices = ["desktop", "web", "TUI", "Liveview", "Fullstack"]
+choices = ["desktop", "web", "tui", "liveview", "fullstack"]
 default = "web"
 
-[conditional.'platform == "Liveview"'.placeholders.backend]
+[conditional.'platform == "liveview"'.placeholders.backend]
 type = "string"
 prompt = "What backend framework are you using?"
 choices = ["Axum", "Warp", "Salvo"]
 default = "Axum"
 
-[conditional.'platform == "Fullstack"'.placeholders.backend]
+[conditional.'platform == "fullstack"'.placeholders.backend]
 type = "string"
 prompt = "What backend framework are you using?"
 choices = ["Axum", "Warp", "Salvo"]
@@ -34,15 +34,15 @@ type = "string"
 prompt = "How do you want to create CSS?"
 choices = ["Tailwind", "Vanilla"]
 default = "Vanilla"
-[conditional.'platform == "Fullstack"'.placeholders.styling]
+[conditional.'platform == "fullstack"'.placeholders.styling]
 type = "string"
 prompt = "How do you want to create CSS?"
 choices = ["Tailwind", "Vanilla"]
 default = "Vanilla"
 
-[conditional.'platform == "TUI"']
+[conditional.'platform == "tui"']
 ignore = [ "tailwind.config.js", "input.css", "public" ]
-[conditional.'platform == "Liveview"']
+[conditional.'platform == "liveview"']
 ignore = [ "tailwind.config.js", "input.css", "public" ]
 [conditional.'platform == "desktop"']
 ignore = [ "public" ]

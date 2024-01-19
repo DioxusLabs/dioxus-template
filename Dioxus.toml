@@ -4,12 +4,8 @@
 name = "{{project-name}}"
 
 # Dioxus App Default Platform
-# desktop, web
-{% if platform == "desktop" %}
-default_platform = "desktop"
-{% else %}
-default_platform = "web"
-{% endif %}
+# desktop, web, fullstack ...
+default_platform = "{{platform}}"
 
 # `build` & `serve` dist path
 out_dir = "dist"
