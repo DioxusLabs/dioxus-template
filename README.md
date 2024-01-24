@@ -1,3 +1,9 @@
+# Overview
+
+**This repo is not intended to be `git cloned`**.
+
+This repo is used by `dx create` when starting new projects. So by running `dx create` you are effectively running this code.
+
 # Development
 {% if styling == "Tailwind" %}
 1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
