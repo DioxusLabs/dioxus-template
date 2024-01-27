@@ -9,7 +9,7 @@ dioxus_version = "0.3"
 [placeholders.platform]
 type = "string"
 prompt = "What platform are you targeting?"
-choices = ["desktop", "web", "TUI", "Liveview", "Fullstack"]
+choices = ["web", "fullstack", "desktop", "liveview", "TUI"]
 default = "web"
 
 [conditional.'platform == "Liveview"'.placeholders.backend]
