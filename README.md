@@ -37,7 +37,7 @@ dx serve --hot-reload
 
 - Open the browser to http://localhost:8080
 {% else %}
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 Launch the Dioxus Fullstack app:
 
 ```bash
