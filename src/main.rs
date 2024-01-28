@@ -1,5 +1,5 @@
 #![allow(non_snake_case)]
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 #![allow(unused)]
 use dioxus_fullstack::prelude::*;
 {% endif %}
@@ -9,7 +9,7 @@ use dioxus_router::prelude::*;
 use dioxus::prelude::*;
 use log::LevelFilter;
 
-{% if platform == "Liveview" %}
+{% if platform == "liveview" %}
 {% if backend == "Axum" %}
 #[tokio::main]
 async fn main() {
@@ -179,7 +179,7 @@ fn main() {
     dioxus_tui::launch(app);
 }
 {% endif %}
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
@@ -192,7 +192,7 @@ fn main() {
 {% endif %}
 
 {% if router %}
-{% if platform != "Fullstack" %}
+{% if platform != "fullstack" %}
 fn app(cx: Scope) -> Element {
     render!{
         Router::<Route> {}
@@ -200,7 +200,7 @@ fn app(cx: Scope) -> Element {
 }
 {% endif %}
 
-{% if platform != "Fullstack" %}
+{% if platform != "fullstack" %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
     #[route("/")]
@@ -209,7 +209,7 @@ enum Route {
     Blog { id: i32 },
 }
 {% endif %}
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 #[derive(Clone, Routable, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
 enum Route {
     #[route("/")]
@@ -230,7 +230,7 @@ fn Blog(cx: Scope, id: i32) -> Element {
 #[component]
 fn Home(cx: Scope) -> Element {
     let mut count = use_state(cx, || 0);
-    {% if platform == "Fullstack" %}
+    {% if platform == "fullstack" %}
     let text = use_state(cx, || "...".to_string());
     {% endif %}
 
@@ -245,7 +245,7 @@ fn Home(cx: Scope) -> Element {
             h1 { "High-Five counter: {count}" }
             button { onclick: move |_| count += 1, "Up high!" }
             button { onclick: move |_| count -= 1, "Down low!" }
-            {% if platform == "Fullstack" %}
+            {% if platform == "fullstack" %}
             button {
                 onclick: move |_| {
                     to_owned![text];
@@ -277,7 +277,7 @@ fn app(cx: Scope) -> Element {
 }
 {% endif %}
 
-{% if platform == "Fullstack" %}
+{% if platform == "fullstack" %}
 #[server(PostServerData)]
 async fn post_server_data(data: String) -> Result<(), ServerFnError> {
     println!("Server received: {}", data);
