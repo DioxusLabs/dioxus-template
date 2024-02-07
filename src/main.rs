@@ -1,11 +1,10 @@
 #![allow(non_snake_case)]
 {% if platform == "fullstack" %}
-#![allow(unused)]
-use dioxus_fullstack::prelude::*;
-{% endif %}
-{% if router %}
-use dioxus_router::prelude::*;
-{% endif %}
+use dioxus_fullstack::prelude::*;{%
+  endif %}{%
+  if router %}
+use dioxus_router::prelude::*;{%
+  endif %}
 use dioxus::prelude::*;
 use log::LevelFilter;
 
@@ -25,7 +24,7 @@ async fn main() {
                     r#"
             <!DOCTYPE html>
             <html>
-                <head> <title>Dioxus LiveView with axum</title>  </head>
+                <head> <title>Dioxus LiveView with Axum</title>  </head>
                 <body> <div id="main"></div> </body>
                 {glue}
             </html>
@@ -50,8 +49,8 @@ async fn main() {
         .await
         .unwrap();
 }
-{% endif %}
-{% if backend == "Salvo" %}
+
+{% elsif backend == "Salvo" %}
 #[tokio::main]
 async fn main() {
     pretty_env_logger::init();
@@ -105,8 +104,8 @@ async fn connect(
         })
         .await
 }
-{% endif %}
-{% if backend == "Warp" %}
+
+{% elsif backend == "warp" %}
 #[tokio::main]
 async fn main() {
     use warp::Filter;
@@ -118,7 +117,7 @@ async fn main() {
             r#"
             <!DOCTYPE html>
             <html>
-                <head> <title>Dioxus LiveView with Warp</title>  </head>
+                <head> <title>Dioxus LiveView with warp</title>  </head>
                 <body> <div id="main"></div> </body>
                 {glue}
             </html>
@@ -149,9 +148,9 @@ async fn main() {
 
     warp::serve(index.or(ws)).run(addr).await;
 }
-{% endif %}
-{% endif %}
-{% if platform == "web" %}
+
+{% endif %}{% comment %}backend{% endcomment %}
+{% elsif platform == "web" %}
 fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
@@ -160,8 +159,8 @@ fn main() {
     log::info!("starting app");
     dioxus_web::launch(app);
 }
-{% endif %}
-{% if platform == "desktop" %}
+
+{% elsif platform == "desktop" %}
 fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
@@ -171,15 +170,15 @@ fn main() {
     dioxus_desktop::launch(app);
     {% endif %}
 }
-{% endif %}
-{% if platform == "TUI" %}
+
+{% elsif platform == "tui" %}
 fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     dioxus_tui::launch(app);
 }
-{% endif %}
-{% if platform == "fullstack" %}
+
+{% elsif platform == "fullstack" %}
 fn main() {
     // Init debug
     dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
@@ -189,7 +188,8 @@ fn main() {
     LaunchBuilder::new(app).launch();
     {% endif %}
 }
-{% endif %}
+
+{% endif %}{% comment %}platform{% endcomment %}
 
 {% if router %}
 {% if platform != "fullstack" %}
@@ -198,9 +198,7 @@ fn app(cx: Scope) -> Element {
         Router::<Route> {}
     }
 }
-{% endif %}
 
-{% if platform != "fullstack" %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
     #[route("/")]
@@ -208,8 +206,7 @@ enum Route {
     #[route("/blog/:id")]
     Blog { id: i32 },
 }
-{% endif %}
-{% if platform == "fullstack" %}
+{% else %}
 #[derive(Clone, Routable, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
 enum Route {
     #[route("/")]
@@ -229,8 +226,8 @@ fn Blog(cx: Scope, id: i32) -> Element {
 
 #[component]
 fn Home(cx: Scope) -> Element {
-    let mut count = use_state(cx, || 0);
-    {% if platform == "fullstack" %}
+    let mut count = use_state(cx, || 0);{%
+      if platform == "fullstack" %}
     let text = use_state(cx, || "...".to_string());
     {% endif %}
 
@@ -244,8 +241,8 @@ fn Home(cx: Scope) -> Element {
         div {
             h1 { "High-Five counter: {count}" }
             button { onclick: move |_| count += 1, "Up high!" }
-            button { onclick: move |_| count -= 1, "Down low!" }
-            {% if platform == "fullstack" %}
+            button { onclick: move |_| count -= 1, "Down low!" }{%
+              if platform == "fullstack" %}
             button {
                 onclick: move |_| {
                     to_owned![text];
@@ -275,13 +272,12 @@ fn app(cx: Scope) -> Element {
         }
     ))
 }
-{% endif %}
+{% endif %}{% comment %}router{% endcomment %}
 
 {% if platform == "fullstack" %}
 #[server(PostServerData)]
 async fn post_server_data(data: String) -> Result<(), ServerFnError> {
     println!("Server received: {}", data);
-
     Ok(())
 }
 
