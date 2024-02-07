@@ -4,12 +4,14 @@
 name = "{{project-name}}"
 
 # Dioxus App Default Platform
-# desktop, web
-{% if platform == "desktop" %}
-default_platform = "desktop"
-{% else %}
-default_platform = "web"
-{% endif %}
+# web, fullstack, desktop{%
+  if platform == "web" %}
+default_platform = "web"{%
+  elsif platform == "fullstack" %}
+default_platform = "fullstack"{%
+  else %}
+default_platform = "desktop"{%
+  endif %}
 
 # `build` & `serve` dist path
 out_dir = "dist"
@@ -33,12 +35,12 @@ watch_path = ["src", "public"]
 # include `assets` in web platform
 [web.resource]
 
-# CSS style file
-{% if styling == "Tailwind" %}
-style = ["tailwind.css"]
-{% else %}
-style = []
-{% endif %}
+# CSS style file{%
+  if styling == "Tailwind" %}
+style = ["tailwind.css"]{%
+  else %}
+style = []{%
+  endif %}
 
 # Javascript code file
 script = []
