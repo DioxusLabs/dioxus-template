@@ -8,47 +8,46 @@ edition = "2021"
 
 [dependencies]
 {% if platform == "liveview" %}
-dioxus = { version = "0.4" }
 tokio = { version = "1.27.0", features = ["full"] }
 {% if backend == "Axum" %}
-dioxus-liveview = { version = "0.4", features = ["axum"] }
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "axum"] }
 axum = { version = "0.6.12", features = ["ws"] }
 {% endif %}
 {% if backend == "Salvo" %}
-dioxus-liveview = { version = "0.4", features = ["salvo"] }
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "salvo"] }
 salvo = { version = "0.37.9", features = ["ws"] }
 {% endif %}
 {% if backend == "Warp" %}
-dioxus-liveview = { version = "0.4", features = ["warp"] }
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "warp"] }
 warp = { version = "0.3.3" }
 {% endif %}
 {% endif %}
 {% if platform == "web" %}
-dioxus-web = { version = "0.4" }
-dioxus = { version = "0.4" }
+dioxus = { version = "0.5.0-alpha.0", features = ["web"] }
 {% endif %}
 {% if platform == "desktop" %}
-dioxus-desktop = { version = "0.4" }
-dioxus = { version = "0.4" }
+dioxus = { version = "0.5.0-alpha.0", features = ["desktop"] }
 {% endif %}
 {% if platform == "TUI" %}
-dioxus-tui = { version = "0.4" }
-dioxus = { version = "0.4" }
+dioxus = { version = "0.5.0-alpha.0", features = ["tui"] }
 {% endif %}
+
 {% if platform == "fullstack" %}
 {% if router %}
-dioxus-fullstack = { version = "0.4", features = ["router"] }
+dioxus-fullstack = { version = "0.5.0-alpha.0", features = ["router"] }
 {% else %}
-dioxus-fullstack = { version = "0.4" }
+dioxus-fullstack = { version = "0.5.0-alpha.0" }
 {% endif %}
-dioxus = { version = "0.4" }
+dioxus = { version = "0.5.0-alpha.0" }
 serde = { version = "1.0.159", features = ["derive"] }
 {% endif %}
 {% if router %}
+
+
 {% if platform == "web" %}
-dioxus-router = { version = "0.4", features = ["web"] }
+dioxus-router = { version = "0.5.0-alpha.0", features = ["web"] }
 {% else %}
-dioxus-router = { version = "0.4" }
+dioxus-router = { version = "0.5.0-alpha.0" }
 {% endif %}
 {% endif %}
 
@@ -63,17 +62,17 @@ console_error_panic_hook = "0.1.7"
 [features]
 default = []
 {% if backend == "Axum" %}
-ssr = ["dioxus-fullstack/axum"]
+ssr = ["dioxus/axum"]
 {% endif %}
 {% if backend == "Salvo" %}
-ssr = ["dioxus-fullstack/salvo"]
+ssr = ["dioxus/salvo"]
 {% endif %}
 {% if backend == "Warp" %}
-ssr = ["dioxus-fullstack/warp"]
+ssr = ["dioxus/warp"]
 {% endif %}
 {% if router %}
-web = ["dioxus-router/web", "dioxus-fullstack/web"]
+web = ["dioxus/router", "dioxus/web"]
 {% else %}
-web = ["dioxus-fullstack/web"]
+web = ["dioxus/web"]
 {% endif %}
 {% endif %}
