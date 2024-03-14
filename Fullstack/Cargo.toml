@@ -1,0 +1,36 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1.0.197", features = ["derive"] }
+{% if router %}
+dioxus = { version = "0.5.0-alpha.0", features = ["fullstack", "router"] }
+{% else %}
+dioxus = { version = "0.5.0-alpha.0", features = ["fullstack"] }
+{% endif %}
+
+# Debug
+log = "0.4.19"
+dioxus-logger = "0.4.1"
+
+[features]
+default = []
+{% if backend == "Axum" %}
+server = ["dioxus/axum"]
+{% endif %}
+{% if backend == "Salvo" %}
+server = ["dioxus/salvo"]
+{% endif %}
+{% if backend == "Warp" %}
+server = ["dioxus/warp"]
+{% endif %}
+{% if router %}
+web = ["dioxus/router", "dioxus/web"]
+{% else %}
+web = ["dioxus/web"]
+{% endif %}

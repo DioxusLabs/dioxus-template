@@ -41,9 +41,8 @@ dioxus-fullstack = { version = "0.5.0-alpha.0" }
 dioxus = { version = "0.5.0-alpha.0" }
 serde = { version = "1.0.159", features = ["derive"] }
 {% endif %}
+
 {% if router %}
-
-
 {% if platform == "web" %}
 dioxus-router = { version = "0.5.0-alpha.0", features = ["web"] }
 {% else %}
