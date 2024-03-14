@@ -54,12 +54,14 @@ fn Home() -> Element {
             button {
                 onclick: move |_| async move {
                     if let Ok(data) = get_server_data().await {
-                        println!("Client received: {}", data);
+                        log::info!("Client received: {}", data);
                         text.set(data.clone());
                         post_server_data(data).await.unwrap();
                     }
-                }
+                },
+                "Get Server Data"
             }
+            p { "Server data: {text}"}
         }
     }
 }
@@ -76,13 +78,13 @@ fn App() -> Element {
 }
 {% endif %}
 
-#[server]
+#[server(PostServerData)]
 async fn post_server_data(data: String) -> Result<(), ServerFnError> {
     println!("Server received: {}", data);
     Ok(())
 }
 
-#[server]
+#[server(GetServerData)]
 async fn get_server_data() -> Result<String, ServerFnError> {
     Ok("Hello from the server!".to_string())
 }
