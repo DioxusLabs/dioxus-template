@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use log::LevelFilter;
 {% if router %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
@@ -13,8 +12,6 @@ enum Route {
 {% endif %}
 
 fn main() {
-    // Init debug
-    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
     launch(App);
 }
 
