@@ -3,8 +3,6 @@
 use dioxus::prelude::*;
 use log::LevelFilter;
 {% if router %}
-use dioxus_router::prelude::*;
-
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
     #[route("/")]

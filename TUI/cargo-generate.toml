@@ -1,0 +1,4 @@
+[template]
+
+[placeholders]
+router = { prompt = "Should the application use the Dioxus router?", type = "bool", default = true }

@@ -1,0 +1,21 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+{% if router %}
+dioxus = { version = "0.5.0-alpha.0", features = ["tui", "router"] }
+dioxus-router = { version = "0.5.0-alpha.0" }
+{% else %}
+dioxus = { version = "0.5.0-alpha.0", features = ["tui"] }
+{% endif %}
+
+
+# Debug
+log = "0.4.19"
+dioxus-logger = "0.4.1"

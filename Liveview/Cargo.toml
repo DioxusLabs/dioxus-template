@@ -1,0 +1,38 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+tokio = { version = "1.27.0", features = ["full"] }
+{% if router %}
+{% if backend == "Axum" %}
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "axum", "router"] }
+axum = { version = "0.7.4", features = ["ws"] }
+{% endif %}
+{% if backend == "Salvo" %}
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "salvo", "router"] }
+salvo = { version = "0.66.2", features = ["ws"] }
+{% endif %}
+{% if backend == "Warp" %}
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "warp", "router"] }
+warp = { version = "0.3.6" }
+{% endif %}
+{% else %}
+{% if backend == "Axum" %}
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "axum"] }
+axum = { version = "0.7.4", features = ["ws"] }
+{% endif %}
+{% if backend == "Salvo" %}
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "salvo"] }
+salvo = { version = "0.66.2", features = ["ws"] }
+{% endif %}
+{% if backend == "Warp" %}
+dioxus = { version = "0.5.0-alpha.0", features = ["liveview", "warp"] }
+warp = { version = "0.3.6" }
+{% endif %}
+{% endif %}

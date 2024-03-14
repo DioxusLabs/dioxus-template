@@ -1,0 +1,9 @@
+[template]
+
+[placeholders]
+backend = { prompt = "What backend framework are you using?", type = "string", choices = [
+    "Axum",
+    "Warp",
+    "Salvo",
+], default = "Axum" }
+router = { prompt = "Should the application use the Dioxus router?", type = "bool", default = true }

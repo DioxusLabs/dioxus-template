@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use log::LevelFilter;
 {% if router %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
@@ -13,15 +12,7 @@ enum Route {
 {% endif %}
 
 fn main() {
-    // Init debug
-    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
-    {% if styling == "Tailwind" %}
-    let cfg = dioxus::Desktop::Config::new().with_custom_head(r#"<link rel="stylesheet" href="tailwind.css">"#.to_string());
-    let builder = LaunchBuilder::desktop().with_cfg(cfg);
-    builder.launch(App);
-    {% else %}
     launch(App);
-    {% endif %}
 }
 
 {% if router %}
@@ -30,7 +21,6 @@ fn App() -> Element {
         Router::<Route> {}
     }
 }
-
 #[component]
 fn Blog(id: i32) -> Element {
     rsx! {
