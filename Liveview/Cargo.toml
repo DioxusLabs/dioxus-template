@@ -10,29 +10,9 @@ edition = "2021"
 [dependencies]
 tokio = { version = "1.27.0", features = ["full"] }
 {% if router %}
-{% if backend == "Axum" %}
 dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["liveview", "axum", "router"] }
 axum = { version = "0.7.4", features = ["ws"] }
-{% endif %}
-{% if backend == "Salvo" %}
-dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["liveview", "salvo", "router"] }
-salvo = { version = "0.66.2", features = ["ws"] }
-{% endif %}
-{% if backend == "Warp" %}
-dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["liveview", "warp", "router"] }
-warp = { version = "0.3.6" }
-{% endif %}
 {% else %}
-{% if backend == "Axum" %}
 dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["liveview", "axum"] }
 axum = { version = "0.7.4", features = ["ws"] }
-{% endif %}
-{% if backend == "Salvo" %}
-dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["liveview", "salvo"] }
-salvo = { version = "0.66.2", features = ["ws"] }
-{% endif %}
-{% if backend == "Warp" %}
-dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["liveview", "warp"] }
-warp = { version = "0.3.6" }
-{% endif %}
 {% endif %}

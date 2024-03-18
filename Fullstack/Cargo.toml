@@ -20,17 +20,5 @@ dioxus-logger = "0.4.1"
 
 [features]
 default = []
-{% if backend == "Axum" %}
 server = ["dioxus/axum"]
-{% endif %}
-{% if backend == "Salvo" %}
-server = ["dioxus/salvo"]
-{% endif %}
-{% if backend == "Warp" %}
-server = ["dioxus/warp"]
-{% endif %}
-{% if router %}
-web = ["dioxus/router", "dioxus/web"]
-{% else %}
 web = ["dioxus/web"]
-{% endif %}
