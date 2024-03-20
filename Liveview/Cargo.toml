@@ -1,0 +1,18 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+tokio = { version = "1.27.0", features = ["full"] }
+{% if router %}
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["liveview", "axum", "router"] }
+axum = { version = "0.7.4", features = ["ws"] }
+{% else %}
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["liveview", "axum"] }
+axum = { version = "0.7.4", features = ["ws"] }
+{% endif %}

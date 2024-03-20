@@ -2,55 +2,8 @@
 
 **This repo is not intended to be `git cloned`**.
 
-This repo is used by `dx create` when starting new projects. So by running `dx create` you are effectively running this code.
+This repo is used by `dx new` when starting new projects. The CLI relies on [cargo-generate](https://crates.io/crates/cargo-generate) to create and use these templates.
 
-# Development
-{% if styling == "Tailwind" %}
-1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-2. Install the tailwind css cli: https://tailwindcss.com/docs/installation
-3. Run the following command in the root of the project to start the tailwind CSS compiler:
+### Organization
 
-```bash
-npx tailwindcss -i ./input.css -o ./public/tailwind.css --watch
-```
-{% endif %}
-{% if platform == "desktop" %}
-Run the following command in the root of the project to start the Dioxus dev server:
-
-```bash
-dx serve --hot-reload --platform desktop
-```
-{% else %}
-{% if platform == "TUI" %}
-Run the following command in the root of the project to start the Dioxus dev server:
-
-```bash
-dx serve --hot-reload --platform desktop
-```
-{% else %}
-{% if platform == "web" %}
-Run the following command in the root of the project to start the Dioxus dev server:
-
-```bash
-dx serve --hot-reload
-```
-
-- Open the browser to http://localhost:8080
-{% else %}
-{% if platform == "fullstack" %}
-Launch the Dioxus Fullstack app:
-
-```bash
-dx build --features web --release
-cargo run --features ssr --release
-```
-{% else %}
-Launch the Dioxus app:
-
-```bash
-cargo run
-```
-{% endif %}
-{% endif %}
-{% endif %}
-{% endif %}
+This repository is organized into multiple sub-templates for each platform.
