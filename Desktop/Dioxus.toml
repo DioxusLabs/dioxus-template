@@ -10,8 +10,8 @@ default_platform = "desktop"
 # `build` & `serve` dist path
 out_dir = "dist"
 
-# resource (public) file folder
-asset_dir = "public"
+# assets file folder
+asset_dir = "assets"
 
 [web.app]
 
@@ -24,7 +24,7 @@ title = "{{project-name}}"
 reload_html = true
 
 # which files or dirs will be watcher monitoring
-watch_path = ["src", "public"]
+watch_path = ["src", "assets"]
 
 # include `assets` in web platform
 [web.resource]
