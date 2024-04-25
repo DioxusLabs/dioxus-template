@@ -31,7 +31,7 @@ watch_path = ["src", "assets"]
 
 # CSS style file
 {% if styling == "Tailwind" %}
-style = ["tailwind.css"]
+style = ["/tailwind.css"]
 {% else %}
 style = []
 {% endif %}
