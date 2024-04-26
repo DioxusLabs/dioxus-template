@@ -53,7 +53,7 @@ fn Home() -> Element {
             button {
                 onclick: move |_| async move {
                     if let Ok(data) = get_server_data().await {
-                        log::info!("Client received: {}", data);
+                        tracing::info!("Client received: {}", data);
                         text.set(data.clone());
                         post_server_data(data).await.unwrap();
                     }
