@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use log::LevelFilter;
+use tracing::Level;
 {% if router %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
@@ -13,8 +13,8 @@ enum Route {
 {% endif %}
 
 fn main() {
-    // Init debug
-    dioxus_logger::init(LevelFilter::Info).expect("failed to init logger");
+    // Init logger
+    dioxus_logger::init(Level::INFO).expect("failed to init logger");
     {% if styling == "Tailwind" %}
     let cfg = dioxus::desktop::Config::new().with_custom_head(r#"<link rel="stylesheet" href="tailwind.css">"#.to_string());
     LaunchBuilder::desktop().with_cfg(cfg).launch(App);

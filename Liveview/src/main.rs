@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
+use tracing::Level;
 {% if router %}
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
@@ -12,6 +13,8 @@ enum Route {
 {% endif %}
 
 fn main() {
+    // Init logger
+    dioxus_logger::init(Level::INFO).expect("failed to init logger");
     launch(App);
 }
 
