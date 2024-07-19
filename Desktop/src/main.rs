@@ -63,8 +63,8 @@ fn App() -> Element {
     // Build cool things ✌️
 
     rsx! {
-        link { rel: "stylesheet", href: "main.css" }
-        img { src: "header.svg", id: "header" }
+        head::Link { rel: "stylesheet", href: manganis::mg!(file("./assets/main.css")) }
+        img { src: manganis::mg!(file("./assets/header.svg")), id: "header" }
         div { id: "links",
             a { href: "https://dioxuslabs.com/learn/0.5/", "📚 Learn Dioxus" }
             a { href: "https://dioxuslabs.com/awesome", "🚀 Awesome Dioxus" }

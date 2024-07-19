@@ -8,10 +8,11 @@ edition = "2021"
 
 [dependencies]
 serde = { version = "1.0.197", features = ["derive"] }
+manganis = { git = "https://github.com/DioxusLabs/manganis" }
 {% if router %}
-dioxus = { version = "0.5", features = ["fullstack", "router"] }
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["fullstack", "router"] }
 {% else %}
-dioxus = { version = "0.5", features = ["fullstack"] }
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["fullstack"] }
 {% endif %}
 
 # Debug
