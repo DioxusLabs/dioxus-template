@@ -16,5 +16,4 @@ dioxus = { version = "0.5", features = ["desktop"] }
 
 
 # Debug
-tracing = "0.1.40"
-dioxus-logger = "0.5.0"
+dioxus-logger = "0.5.1"

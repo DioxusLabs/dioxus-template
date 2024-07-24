@@ -15,8 +15,7 @@ dioxus = { version = "0.5", features = ["fullstack"] }
 {% endif %}
 
 # Debug
-tracing = "0.1.40"
-dioxus-logger = "0.5.0"
+dioxus-logger = "0.5.1"
 
 [features]
 default = []
