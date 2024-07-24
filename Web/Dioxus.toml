@@ -4,7 +4,7 @@
 name = "{{project-name}}"
 
 # Dioxus App Default Platform
-# desktop, web
+# web, desktop, fullstack
 default_platform = "web"
 
 # `build` & `serve` dist path
