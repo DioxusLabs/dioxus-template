@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use dioxus_logger::tracing::{Level, info};
+use dioxus_logger::tracing;
 
 {% if router %}
 #[derive(Clone, Routable, Debug, PartialEq, serde::Serialize, serde::Deserialize)]
@@ -15,8 +15,8 @@ enum Route {
 
 fn main() {
     // Init logger
-    dioxus_logger::init(Level::INFO).expect("failed to init logger");
-    info!("starting app");
+    dioxus_logger::init(tracing::Level::INFO).expect("failed to init logger");
+    tracing::info!("starting app");
     launch(App);
 }
 
@@ -54,7 +54,7 @@ fn Home() -> Element {
             button {
                 onclick: move |_| async move {
                     if let Ok(data) = get_server_data().await {
-                        info!("Client received: {}", data);
+                        tracing::info!("Client received: {}", data);
                         text.set(data.clone());
                         post_server_data(data).await.unwrap();
                     }
@@ -88,7 +88,7 @@ fn App() -> Element {
 
 #[server(PostServerData)]
 async fn post_server_data(data: String) -> Result<(), ServerFnError> {
-    info!("Server received: {}", data);
+    tracing::info!("Server received: {}", data);
     Ok(())
 }
 
