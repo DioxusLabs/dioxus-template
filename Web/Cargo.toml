@@ -7,8 +7,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
-manganis = { git = "https://github.com/DioxusLabs/manganis" }
 {% if router %}
 dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["web", "router"] }
 {% else %}

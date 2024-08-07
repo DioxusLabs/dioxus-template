@@ -8,7 +8,6 @@ edition = "2021"
 
 [dependencies]
 
-manganis = { git = "https://github.com/DioxusLabs/manganis" }
 {% if router %}
 dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["desktop", "router"] }
 {% else %}
