@@ -1,2 +1,2 @@
 [template]
-sub_templates = ["Web", "Liveview", "Fullstack", "Desktop", "TUI"]
+sub_templates = ["Web", "Liveview", "Fullstack", "Desktop"]
