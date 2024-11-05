@@ -9,7 +9,7 @@ edition = "2021"
 [dependencies]
 
 {% if router %}
-dioxus = { version = "0.5", features = ["tui", "router"] }
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["tui", "router"] }
 {% else %}
-dioxus = { version = "0.5", features = ["tui"] }
+dioxus = { git = "https://github.com/DioxusLabs/dioxus", features = ["tui"] }
 {% endif %}
