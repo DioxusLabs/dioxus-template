@@ -1,2 +1,12 @@
 [template]
-sub_templates = ["Web", "Liveview", "Fullstack", "Desktop"]
+
+[placeholders]
+styling = { prompt = "How do you want to create CSS?", choices = [
+    "Tailwind",
+    "Vanilla",
+], default = "Vanilla", type = "string" }
+router = { prompt = "Should the application use the Dioxus router?", type = "bool", default = true }
+fullstack = { prompt = "Should the application enable fullstack?", type = "bool", default = true }
+
+[conditional.'styling == "Vanilla"']
+ignore = ["tailwind.config.js", "input.css"]

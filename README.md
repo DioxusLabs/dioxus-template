@@ -1,9 +1,15 @@
-# Overview
+# Development
+{% if styling == "Tailwind" %}
+1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+2. Install the tailwind css cli: https://tailwindcss.com/docs/installation
+3. Run the following command in the root of the project to start the tailwind CSS compiler:
 
-**This repo is not intended to be `git cloned`**.
+```bash
+npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
+```
+{% endif %}
+Run the following command in the root of the project to start the Dioxus dev server:
 
-This repo is used by `dx new` when starting new projects. The CLI relies on [cargo-generate](https://crates.io/crates/cargo-generate) to create and use these templates.
-
-### Organization
-
-This repository is organized into multiple sub-templates for each platform.
+```bash
+dx serve --hot-reload --platform desktop
+```
