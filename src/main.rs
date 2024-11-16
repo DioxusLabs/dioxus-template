@@ -51,8 +51,8 @@ fn Home() -> Element {
 fn app() -> Element {
     // Build cool things ✌️
     rsx! {
-        link { rel: "stylesheet", href: asset!("main.css") }
-        img { id: "header", src: asset!("header.svg") }
+        link { rel: "stylesheet", href: asset!("/assets/main.css") }
+        img { id: "header", src: asset!("/assets/header.svg") }
         div { id: "links",
             a { href: "https://dioxuslabs.com/learn/0.6/", "📚 Learn Dioxus" }
             a { href: "https://dioxuslabs.com/awesome", "🚀 Awesome Dioxus" }
