@@ -7,7 +7,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dioxus = { version = "0.6.0-alpha.4", features = [{% if router %}"router",{% endif %}{% if fullstack %}"fullstack",{% endif %}] }
+dioxus = { version = "0.6.0-alpha.5", features = [{% if router %}"router",{% endif %}{% if fullstack %}"fullstack",{% endif %}] }
 
 
 [features]
