@@ -17,9 +17,15 @@ npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
 
 Run the following command in the root of your project to start developing with the default platform:
 
+{% if is_fullstack -%}
+```bash
+dx serve --platform {{default_platform}}
+```
+{%- else -%}
 ```bash
 dx serve
 ```
+{%- endif %}
 
 To run for a different platform, use the `--platform platform` flag. E.g.
 ```bash

@@ -26,6 +26,7 @@ let platforms = [
     "Desktop",
     "Mobile"
 ];
+let is_fullstack = variable::get(IS_FULLSTACK_VAR);
 
 // Do we need a default platform?
 if variable::get(NEEDS_DEFAULT_PLATFORM_VAR) {
@@ -64,7 +65,6 @@ if variable::get(NEEDS_DEFAULT_PLATFORM_VAR) {
 
 
 let is_router = variable::get(IS_ROUTER_VAR);
-let is_fullstack = variable::get(IS_FULLSTACK_VAR);
 switch [is_router, is_fullstack] {
     [true, true] => variable::set(DIOXUS_DEP_FEAT_VAR, "[\"router\", \"fullstack\"]"),
     [true, false] => variable::set(DIOXUS_DEP_FEAT_VAR, "[\"router\"]"),

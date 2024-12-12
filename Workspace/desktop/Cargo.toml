@@ -8,7 +8,7 @@ dioxus = { workspace = true, features = [{{- router_feature -}}] }
 ui = { workspace = true }
 
 [features]
-default = ["desktop"]
+default = [{% if is_fullstack == false -%}"desktop"{%- endif %}]
 desktop = ["dioxus/desktop"]
 {% if is_fullstack -%}
 server = ["dioxus/server"]
