@@ -30,9 +30,10 @@ fn App() -> Element {
         document::Link { rel: "stylesheet", href: MAIN_CSS } {% if is_tailwind -%}
         document::Link { rel: "stylesheet", href: TAILWIND_CSS } {%- endif %}
         {% if is_router -%} Router::<Route> {}
-        {%- else -%} Hero {}
-        {%- endif %} {% if is_fullstack -%}
-        Echo {}{%- endif %}
+        {%- else -%} 
+        Hero {}
+        {% if is_fullstack -%} Echo {} {%- endif %}
+        {%- endif %} 
     }
 }
 
