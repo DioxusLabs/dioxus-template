@@ -13,6 +13,9 @@ out_dir = "dist"
 # assets file folder
 asset_dir = "assets"
 
+[bundle]
+identifier = "{{project-name}}"
+
 [web.app]
 
 # HTML title tag content
