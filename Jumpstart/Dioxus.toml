@@ -2,6 +2,7 @@
 
 # App (Project) Name
 name = "{{project-name}}"
+default_platform = "{{default_platform}}"
 
 [web.app]
 
