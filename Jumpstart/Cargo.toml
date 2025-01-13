@@ -10,7 +10,7 @@ edition = "2021"
 dioxus = { {{ dioxus_dep_src }}, features = {{dioxus_dep_features}} }
 
 [features]
-default = [{% if is_fullstack == false -%}"{{default_platform}}"{%- endif %}]
+default = [{% if is_fullstack -%}"{{default_platform}}"{%- endif %}]
 {%- for feature in features %}
 {{ feature }}
 {%- endfor %}
