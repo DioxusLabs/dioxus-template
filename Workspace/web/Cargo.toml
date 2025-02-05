@@ -11,5 +11,5 @@ ui = { workspace = true }
 default = [{% if is_fullstack == false -%}"web"{%- endif %}]
 web = ["dioxus/web"]
 {% if is_fullstack -%}
-server = ["dioxus/server"]
+server = ["dioxus/server", "server/server"]
 {%- endif %}
