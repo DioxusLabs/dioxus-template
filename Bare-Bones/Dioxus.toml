@@ -1,7 +1,5 @@
 [application]
 
-# App (Project) Name
-name = "{{project-name}}"
 
 [web.app]
 
