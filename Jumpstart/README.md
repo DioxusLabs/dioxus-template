@@ -22,7 +22,7 @@ project/
 {% if is_tailwind -%}
 ### Tailwind
 1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-2. Install the Tailwind CSS CLI: https://tailwindcss.com/docs/installation
+2. Install the Tailwind CSS CLI v3: https://v3.tailwindcss.com/docs/installation (Tailwind v4 and newer are not supported)
 3. Run the following command in the root of the project to start the Tailwind CSS compiler:
 
 ```bash
