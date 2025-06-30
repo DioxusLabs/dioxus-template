@@ -19,11 +19,13 @@ const FEATURES_VAR = "features";
 let features = [
     "web = [\"dioxus/web\"]",
     "desktop = [\"dioxus/desktop\"]",
+    "native = [\"dioxus/native\"]",
     "mobile = [\"dioxus/mobile\"]"
 ];
 let platforms = [
     "Web",
     "Desktop",
+    "Native",
     "Mobile"
 ];
 let is_fullstack = variable::get(IS_FULLSTACK_VAR);
