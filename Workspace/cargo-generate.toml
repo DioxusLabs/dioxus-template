@@ -8,3 +8,4 @@ post = ["conditional-files.rhai"]
 [placeholders]
 is_fullstack = { prompt = "Do you want to use Dioxus Fullstack?", default = true, type = "bool" }
 is_router = { prompt = "Do you want to use Dioxus Router?", default = true, type = "bool" }
+is_prompt = { prompt = "Do you want to include prompts for LLMs?", default = false, type = "bool" }
