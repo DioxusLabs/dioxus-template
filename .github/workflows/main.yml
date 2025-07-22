@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - uses: cargo-bins/cargo-binstall@v1.10.13
-      - run: cargo binstall dioxus-cli@0.6 --force --no-confirm
+      - run: cargo binstall dioxus-cli@0.7.0-alpha.3 --force --no-confirm
       - run: sudo apt update
       - run: sudo apt install expect libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
 
@@ -33,7 +33,7 @@ jobs:
 
       - name: Test Bare-Bones
         working-directory: ./barebones-all
-        run: cargo check
+        run: cargo check --all-features
 
       # Test Jumpstart
       - name: Create Jumpstart
@@ -41,7 +41,7 @@ jobs:
 
       - name: Test Jumpstart
         working-directory: ./jumpstart-all
-        run: cargo check
+        run: cargo check --all-features
 
       # Test Workspace
       - name: Create Workspace
@@ -49,4 +49,4 @@ jobs:
 
       - name: Test Workspace
         working-directory: ./workspace-all
-        run: cargo check
+        run: cargo check --all-features

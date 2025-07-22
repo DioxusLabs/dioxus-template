@@ -1,5 +1,5 @@
 [template]
-exclude = ["*.ico"]
+exclude = ["*.ico", "**/.DS_Store"]
 
 [hooks]
 pre = ["init.rhai", "../common.rhai"]
@@ -9,3 +9,4 @@ post = ["conditional-files.rhai"]
 is_fullstack = { prompt = "Do you want to use Dioxus Fullstack?", default = false, type = "bool" }
 is_router = { prompt = "Do you want to use Dioxus Router?", default = false, type = "bool" }
 is_tailwind = { prompt = "Do you want to use Tailwind CSS?", default = false, type = "bool" }
+is_prompt = { prompt = "Do you want to include prompts for LLMs?", default = false, type = "bool" }
