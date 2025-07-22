@@ -33,7 +33,7 @@ jobs:
 
       - name: Test Bare-Bones
         working-directory: ./barebones-all
-        run: cargo check
+        run: cargo check --all-features
 
       # Test Jumpstart
       - name: Create Jumpstart
@@ -41,7 +41,7 @@ jobs:
 
       - name: Test Jumpstart
         working-directory: ./jumpstart-all
-        run: cargo check
+        run: cargo check --all-features
 
       # Test Workspace
       - name: Create Workspace
@@ -49,4 +49,4 @@ jobs:
 
       - name: Test Workspace
         working-directory: ./workspace-all
-        run: cargo check
+        run: cargo check --all-features
