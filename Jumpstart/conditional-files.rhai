@@ -25,7 +25,7 @@ if !is_fullstack {
     file::delete("assets/styling/echo.css");
 }
 
-let is_prompt = variable::get(IS_PROMPT);
+let is_prompt = variable::get(IS_PROMPT_VAR);
 if !is_prompt {
     file::delete("prompt.md");
     file::delete("prompt-small.md");
