@@ -6,10 +6,10 @@ const ROUTER_FEATURE_VAR = "router_feature";
 const IS_FULLSTACK = "is_fullstack";
 const IS_ROUTER = "is_router";
 
-let workspace_members = ["web", "desktop", "mobile"];
+let workspace_members = ["packages/web", "packages/desktop", "packages/mobile"];
 
 if variable::get(IS_FULLSTACK) {
-    workspace_members += "api"
+    workspace_members += "packages/api"
 }
 
 variable::set(WORKSPACE_MEMBERS_VAR, workspace_members);
