@@ -1,7 +1,7 @@
 // This file sets variables based on the results of the shared-init script.
 
 const WORKSPACE_MEMBERS_VAR = "workspace_members";
-const ROUTER_FEATURE_VAR = "router_feature";
+const DIOXUS_FEATURE_VAR = "dioxus_features";
 
 const IS_FULLSTACK = "is_fullstack";
 const IS_ROUTER = "is_router";
@@ -14,9 +14,19 @@ if variable::get(IS_FULLSTACK) {
 
 variable::set(WORKSPACE_MEMBERS_VAR, workspace_members);
 
-// Router feature
+// Dioxus features
+let features = [];
 if variable::get(IS_ROUTER) {
-    variable::set(ROUTER_FEATURE_VAR, "\"router\"");
-} else {
-    variable::set(ROUTER_FEATURE_VAR, "");
+    features.push("router");
 }
+if variable::get(IS_FULLSTACK) {
+    features.push("fullstack");
+}
+let features_string = "";
+for feature in features {
+    if features_string.len() > 0 {
+        features_string += ", ";
+    }
+    features_string += "\"" + feature + "\"";
+}
+variable::set(DIOXUS_FEATURE_VAR, features_string);
