@@ -63,6 +63,10 @@ if variable::get(NEEDS_DEFAULT_PLATFORM_VAR) {
     }
 }
 
+// Add a server feature if the fullstack feature is enabled
+if is_fullstack {
+    features.push("server = [\"dioxus/server\"]");
+}
 
 let is_router = variable::get(IS_ROUTER_VAR);
 switch [is_router, is_fullstack] {
