@@ -7,4 +7,7 @@ edition = "2021"
 dioxus = { workspace = true }
 {% if is_fullstack -%}
 api = { workspace = true }
+
+[features]
+server = ["api/server"]
 {%- endif %}
