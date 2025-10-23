@@ -1,3 +1,4 @@
+#![cfg_attr(feature = "bundle", windows_subsystem = "windows")]
 use dioxus::prelude::*;
 
 {% if is_router -%}

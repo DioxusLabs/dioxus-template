@@ -11,6 +11,7 @@ dioxus = { {{ dioxus_dep_src }}, features = {{dioxus_dep_features}} }
 
 [features]
 default = ["{{default_platform}}"]
+bundle = []
 {%- for feature in features %}
 # The feature that are only required for the {{feature}} build target should be optional and only enabled in the {{feature}} feature
 {{ feature }}

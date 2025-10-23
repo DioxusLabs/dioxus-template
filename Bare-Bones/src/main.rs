@@ -1,3 +1,4 @@
+#![cfg_attr(feature = "bundle", windows_subsystem = "windows")]
 use dioxus::prelude::*;
 
 {% if is_router %}
@@ -30,10 +31,10 @@ fn App() -> Element {
         document::Link { rel: "stylesheet", href: MAIN_CSS } {% if is_tailwind -%}
         document::Link { rel: "stylesheet", href: TAILWIND_CSS } {%- endif %}
         {% if is_router -%} Router::<Route> {}
-        {%- else -%} 
+        {%- else -%}
         Hero {}
         {% if is_fullstack -%} Echo {} {%- endif %}
-        {%- endif %} 
+        {%- endif %}
     }
 }
 

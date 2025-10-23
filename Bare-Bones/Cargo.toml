@@ -11,6 +11,7 @@ dioxus = { {{ dioxus_dep_src }}, features = {{dioxus_dep_features}} }
 
 [features]
 default = ["{{default_platform}}"]
+bundle = []
 {%- for feature in features %}
 {{ feature }}
 {%- endfor %}
