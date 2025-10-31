@@ -244,11 +244,11 @@ dioxus = { version = "0.7.0-rc.4", features = ["fullstack"] }
 
 ## Server Functions
 
-Use the `#[server]` macro to define an `async` function that will only run on the server. On the server, this macro generates an API endpoint. On the client, it generates a function that makes an HTTP request to that endpoint.
+Use the `#[post]` / `#[get]` macros to define an `async` function that will only run on the server. On the server, this macro generates an API endpoint. On the client, it generates a function that makes an HTTP request to that endpoint.
 
 ```rust
-#[server]
-async fn double_server(number: i32) -> Result<i32, ServerFnError> {
+#[post("/api/double/:path/&query")]
+async fn double_server(number: i32, path: String, query: i32) -> Result<i32, ServerFnError> {
 	tokio::time::sleep(std::time::Duration::from_secs(1)).await;
 	Ok(number * 2)
 }

@@ -30,10 +30,10 @@ fn App() -> Element {
         document::Link { rel: "stylesheet", href: MAIN_CSS } {% if is_tailwind -%}
         document::Link { rel: "stylesheet", href: TAILWIND_CSS } {%- endif %}
         {% if is_router -%} Router::<Route> {}
-        {%- else -%} 
+        {%- else -%}
         Hero {}
         {% if is_fullstack -%} Echo {} {%- endif %}
-        {%- endif %} 
+        {%- endif %}
     }
 }
 
@@ -140,7 +140,7 @@ fn Echo() -> Element {
 }
 
 /// Echo the user input on the server.
-#[server(EchoServer)]
+#[post("/api/echo")]
 async fn echo_server(input: String) -> Result<String, ServerFnError> {
     Ok(input)
 }
