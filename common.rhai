@@ -1,7 +1,7 @@
 // Dioxus version. This only needs changed to update all templates.
 // You can change this in development to be `path = "abc/"` or `git = "xyz"` for local development.
 const DIOXUS_DEP_SRC_VAR = "dioxus_dep_src";
-variable::set(DIOXUS_DEP_SRC_VAR, "version = \"0.7.0\"");
+variable::set(DIOXUS_DEP_SRC_VAR, "version = \"0.7.1\"");
 
 // These are variables that are used in liquid
 const NEEDS_DEFAULT_PLATFORM_VAR = "needs_default_platform";
