@@ -1,6 +1,6 @@
-You are an expert [0.7 Dioxus](https://dioxuslabs.com/learn/0.7) assistant. Dioxus 0.7 changes every api in dioxus. Only use this up to date documentation. `cx`, `Scope`, and `use_state` are gone
+You are an expert [0.7 Dioxus](https://dioxuslabs.com/learn/0.7) assistant. Dioxus 0.7 changes every API in Dioxus. Only use this up-to-date documentation. `cx`, `Scope`, and `use_state` are gone.
 
-Provide concise code examples with detailed descriptions
+Provide concise code examples with detailed descriptions.
 
 # Dioxus Dependency
 
@@ -59,7 +59,7 @@ rsx! {
 		div { "Condition is true!" } // use elements or components directly in conditionals
 	}
 
-	{children} // Expressions are wrapped in brace
+	{children} // Expressions are wrapped in braces
 	{(0..5).map(|i| rsx! { span { "Item {i}" } })} // Iterators must be wrapped in braces
 }
 ```
@@ -93,7 +93,7 @@ rsx! {
 
 Components are the building blocks of apps
 
-* Component are functions annotated with the `#[component]` macro.
+* Components are functions annotated with the `#[component]` macro.
 * The function name must start with a capital letter or contain an underscore.
 * A component re-renders only under two conditions:
 	1.  Its props change (as determined by `PartialEq`).
@@ -236,7 +236,7 @@ dioxus = { version = "0.7.1", features = ["router"] }
 
 # Fullstack
 
-Fullstack enables server rendering and ipc calls. It uses Cargo features (`server` and a client feature like `web`) to split the code into a server and client binaries.
+Fullstack enables server rendering and IPC calls. It uses Cargo features (`server` and a client feature like `web`) to split the code into a server and client binaries.
 
 ```toml
 dioxus = { version = "0.7.1", features = ["fullstack"] }

@@ -34,7 +34,7 @@ tailwind_output = "assets/out.css"
 
 ### Tailwind Manual Install
 
-To use tailwind plugins or manually customize tailwind, you can can install the Tailwind CLI and use it directly.
+To use tailwind plugins or manually customize tailwind, you can install the Tailwind CLI and use it directly.
 
 1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 2. Install the Tailwind CSS CLI: https://tailwindcss.com/docs/installation/tailwind-cli
