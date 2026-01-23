@@ -20,10 +20,10 @@ title = "{{project-name}}"
 
 [web.watcher]
 
-# when watcher trigger, regenerate the `index.html`
+# when watcher triggers, regenerate the `index.html`
 reload_html = true
 
-# which files or dirs will be watcher monitoring
+# which files or dirs the watcher will monitor
 watch_path = ["src", "assets"]
 
 # include `assets` in web platform
