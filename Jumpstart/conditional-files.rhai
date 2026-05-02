@@ -27,6 +27,5 @@ if !is_fullstack {
 
 let is_prompt = variable::get(IS_PROMPT_VAR);
 if !is_prompt {
-    file::delete("prompt.md");
-    file::delete("prompt-small.md");
+    file::delete("AGENTS.md");
 }

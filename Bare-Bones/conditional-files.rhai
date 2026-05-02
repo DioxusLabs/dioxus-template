@@ -11,6 +11,5 @@ if !is_tailwind {
 
 let is_prompt = variable::get(IS_PROMPT);
 if !is_prompt {
-    file::delete("prompt.md");
-    file::delete("prompt-small.md");
+    file::delete("AGENTS.md");
 }
