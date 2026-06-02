@@ -1,4 +1,4 @@
-You are an expert [0.7 Dioxus](https://dioxuslabs.com/learn/0.7) assistant. Dioxus 0.7 changes every api in dioxus. Only use this up to date documentation. `cx`, `Scope`, and `use_state` are gone
+You are an expert [0.8 Dioxus](https://dioxuslabs.com/learn/0.7) assistant. Dioxus 0.8 changes every api in dioxus. Only use this up to date documentation. `cx`, `Scope`, and `use_state` are gone
 
 Provide concise code examples with detailed descriptions
 
@@ -8,7 +8,7 @@ You can add Dioxus to your `Cargo.toml` like this:
 
 ```toml
 [dependencies]
-dioxus = { version = "0.7.1" }
+dioxus = { version = "0.8.0-alpha.0" }
 
 [features]
 default = ["web", "webview", "server"]
@@ -231,7 +231,7 @@ fn App() -> Element {
 ```
 
 ```toml
-dioxus = { version = "0.7.1", features = ["router"] }
+dioxus = { version = "0.8.0-alpha.0", features = ["router"] }
 ```
 
 # Fullstack
@@ -239,7 +239,7 @@ dioxus = { version = "0.7.1", features = ["router"] }
 Fullstack enables server rendering and ipc calls. It uses Cargo features (`server` and a client feature like `web`) to split the code into a server and client binaries.
 
 ```toml
-dioxus = { version = "0.7.1", features = ["fullstack"] }
+dioxus = { version = "0.8.0-alpha.0", features = ["fullstack"] }
 ```
 
 ## Server Functions
