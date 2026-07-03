@@ -15,3 +15,15 @@ ui = { path = "packages/ui" }
 {% if is_fullstack -%}
 api = { path = "packages/api" }
 {%- endif %}
+
+# Wasm builds benefit a lot from a size-tuned release profile (measured on a
+# fullstack app: raw wasm 2559 KiB -> 941 KiB, gzip 684 KiB -> 386 KiB).
+# Uncomment to opt in. Note: the profile is shared with the server binary in
+# fullstack apps — avoid `panic = "abort"` there so a task panic cannot take
+# the whole server down.
+#
+# [profile.release]
+# opt-level = "z"
+# lto = true
+# codegen-units = 1
+# strip = true

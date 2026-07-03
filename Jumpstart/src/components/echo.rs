@@ -10,7 +10,7 @@ pub fn Echo() -> Element {
     //
     // use_signal is a hook that creates a state for the component. It takes a closure that returns the initial value of the state.
     // The state is automatically tracked and will rerun any other hooks or components that read it whenever it changes.
-    let mut response = use_signal(|| String::new());
+    let mut response = use_signal(String::new);
 
     rsx! {
         document::Link { rel: "stylesheet", href: ECHO_CSS }
