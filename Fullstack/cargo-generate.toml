@@ -1,4 +1,5 @@
 [template]
+exclude = ["assets/favicon.ico"]
 
 [placeholders]
 router = { prompt = "Should the application use the Dioxus router?", type = "bool", default = true }

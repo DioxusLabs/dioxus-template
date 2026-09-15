@@ -1,4 +1,5 @@
 [template]
+exclude = ["assets/favicon.ico"]
 
 [placeholders]
 styling = { prompt = "How do you want to create CSS?", choices = [
