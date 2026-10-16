@@ -8,7 +8,7 @@ You can add Dioxus to your `Cargo.toml` like this:
 
 ```toml
 [dependencies]
-dioxus = { version = "0.8.0-alpha.2" }
+dioxus = { version = "0.8.0-alpha.3" }
 
 [features]
 default = ["web", "webview", "server"]
@@ -109,7 +109,7 @@ fn Input(mut value: Signal<String>) -> Element {
 				*value.write() = e.value();
 			},
 			onkeydown: move |e| {
-				if e.key() == Key::Enter {
+				if e.key() == Key::Named(NamedKey::Enter) {
 					value.write().clear();
 				}
 			},
@@ -231,7 +231,7 @@ fn App() -> Element {
 ```
 
 ```toml
-dioxus = { version = "0.8.0-alpha.2", features = ["router"] }
+dioxus = { version = "0.8.0-alpha.3", features = ["router"] }
 ```
 
 # Fullstack
@@ -239,7 +239,7 @@ dioxus = { version = "0.8.0-alpha.2", features = ["router"] }
 Fullstack enables server rendering and ipc calls. It uses Cargo features (`server` and a client feature like `web`) to split the code into a server and client binaries.
 
 ```toml
-dioxus = { version = "0.8.0-alpha.2", features = ["fullstack"] }
+dioxus = { version = "0.8.0-alpha.3", features = ["fullstack"] }
 ```
 
 ## Server Functions
