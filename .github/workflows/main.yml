@@ -27,6 +27,9 @@ jobs:
       - run: sudo apt update
       - run: sudo apt install expect libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
 
+      - name: Test Tailwind selection
+        run: bash tests/tailwind.sh
+
       # Test bare bones
       - name: Create Bare-Bones
         run: dx new --template . --subtemplate Bare-Bones --yes --option default_platform=web barebones-all

@@ -1,6 +1,9 @@
 [template]
 exclude = ["*.ico", "**/.DS_Store"]
 
+[conditional.'!is_tailwind']
+ignore = ["tailwind.css", "assets/tailwind.css"]
+
 [hooks]
 pre = ["init.rhai", "../common.rhai"]
 post = ["conditional-files.rhai"]
